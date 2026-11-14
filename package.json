@@ -1,0 +1,13 @@
+{
+  "name": "elkisai-quiz",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler pages dev public --d1=DB",
+    "db:local": "wrangler d1 execute elkisai-quiz --local --file=schema.sql",
+    "deploy": "wrangler pages deploy public --project-name elkisai-quiz"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

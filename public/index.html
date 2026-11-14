@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Kuis El-Kisai</title>
+  <meta name="description" content="Kuis interaktif El-Kisai Education. Uji pemahamanmu dan lihat papan skor." />
+  <meta name="theme-color" content="#22215F" />
+  <link rel="icon" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <img src="/assets/logo.png" alt="El-Kisai Education" class="brand" />
+      <button class="btn-ghost" id="btn-board-nav" type="button">Papan Skor</button>
+    </header>
+
+    <main>
+      <!-- Splash -->
+      <section class="view active" id="view-splash">
+        <div class="card center">
+          <div class="mascot"><img src="/assets/logo.png" alt="" /></div>
+          <h1>Mulai Kuis!</h1>
+          <p class="muted">Selamat datang di El-Kisai Education. Uji pemahamanmu lewat soal-soal menarik.</p>
+          <button class="btn-primary btn-block" id="btn-start" type="button">Mulai Main</button>
+          <button class="link" id="btn-switch" type="button" hidden>Bukan kamu? Mulai sebagai tamu baru</button>
+        </div>
+      </section>
+
+      <!-- Registrasi tamu -->
+      <section class="view" id="view-register">
+        <form class="card" id="form-register" autocomplete="off">
+          <h2>Siapa namamu?</h2>
+          <p class="muted">Namamu akan tercatat di papan skor. Tidak perlu login.</p>
+          <label class="field">
+            <span>Nama</span>
+            <input id="input-name" name="name" maxlength="40" required placeholder="Contoh: Ahmad Fauzi" />
+          </label>
+          <p class="error" id="register-error" role="alert"></p>
+          <button class="btn-primary btn-block" type="submit">Simpan &amp; Mulai</button>
+        </form>
+      </section>
+
+      <!-- Kuis -->
+      <section class="view" id="view-quiz">
+        <div class="card quiz">
+          <div class="quiz-head">
+            <span class="category" id="q-category"></span>
+            <span class="timer" id="timer">⏱ 00:00</span>
+          </div>
+          <div class="progress"><span id="progress-bar"></span></div>
+          <p class="muted small" id="q-count"></p>
+          <h2 class="question" id="q-text"></h2>
+          <div class="options" id="options"></div>
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+          <button class="btn-primary btn-block" id="btn-check" type="button" disabled>Periksa Jawaban</button>
+          <button class="btn-primary btn-block" id="btn-next" type="button" hidden>Soal Berikutnya</button>
+        </div>
+      </section>
+
+      <!-- Hasil -->
+      <section class="view" id="view-result">
+        <div class="card center">
+          <div class="mascot"><img src="/assets/logo.png" alt="" /></div>
+          <h2>Kuis Selesai 🎉</h2>
+          <div class="big-score" id="result-score">0</div>
+          <p class="muted">Total poin</p>
+          <p class="muted small" id="result-answered"></p>
+          <button class="btn-primary btn-block" id="btn-result-board" type="button">Lihat Papan Skor</button>
+        </div>
+      </section>
+
+      <!-- Papan skor -->
+      <section class="view" id="view-board">
+        <div class="board">
+          <div class="card podium-card">
+            <h2>Papan Skor</h2>
+            <div class="podium" id="podium"></div>
+          </div>
+          <div class="card list-card">
+            <ol class="rank-list" id="rank-list"></ol>
+            <p class="muted center" id="board-empty" hidden>Belum ada peserta. Jadilah yang pertama!</p>
+          </div>
+        </div>
+        <button class="btn-ghost btn-block back" id="btn-board-back" type="button">Kembali</button>
+      </section>
+    </main>
+  </div>
+  <script src="/js/app.js" defer></script>
+</body>
+</html>
